@@ -22,9 +22,9 @@ type (
 	}
 
 	Config struct {
-		Database Database `yaml:"database"`
-		Server   Server   `yaml:"server"`
-		Env      string   `yaml:"env" env-default:"local"`
+		Database *Database `yaml:"database"`
+		Server   *Server   `yaml:"server"`
+		Env      string    `yaml:"env" env-default:"local"`
 	}
 )
 

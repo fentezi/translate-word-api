@@ -12,13 +12,13 @@ import (
 func main() {
 	cfg := config.MustLoad()
 
-	_ = logger.MustSetupLogger(cfg.Env)
+	logger := logger.MustSetupLogger(cfg.Env)
 
 	redis := config.NewRedis(cfg)
 
 	repo := red.NewRedisRepository(redis)
 
-	service := services.NewService(repo)
+	service := services.NewService(repo, logger)
 
 	handlers := handlers.NewHandlers(service)
 

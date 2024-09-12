@@ -20,7 +20,7 @@ func NewHandlers(service *services.Service) *Handlers {
 func (h *Handlers) GetTranslateWord(c *gin.Context) {
 	word := c.Query("word")
 
-	translate, err := h.Services.GetTranslateWord(word)
+	translate, err := h.Services.CacheService.GetTranslateWord(word)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
