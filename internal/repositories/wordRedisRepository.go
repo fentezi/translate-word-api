@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/fentezi/translete-word/internal/database"
+	"github.com/fentezi/translete-word/database"
 	"github.com/fentezi/translete-word/internal/utils/errors"
 	"github.com/redis/go-redis/v9"
 )

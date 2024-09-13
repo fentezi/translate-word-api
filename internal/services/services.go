@@ -1,17 +1,7 @@
 package services
 
-import (
-	"log/slog"
+import "github.com/fentezi/translete-word/internal/models"
 
-	"github.com/fentezi/translete-word/internal/repositories"
-)
-
-type Service struct {
-	CacheService *CacheService
-}
-
-func NewService(repository repositories.Repository, logger *slog.Logger) *Service {
-	return &Service{
-		CacheService: NewCacheService(repository, logger),
-	}
+type WordService interface {
+	WordTranslate(in *models.AddWord) (string, error)
 }
