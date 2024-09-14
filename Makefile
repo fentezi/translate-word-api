@@ -7,4 +7,7 @@ build:
 start:
 	docker run -p 8080:8080 --name translate-word-api --rm -d translate-word-api
 
-.PHONY: run	build start
+test:
+	go test ./...
+
+.PHONY: run	build start test
