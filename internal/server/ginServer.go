@@ -20,6 +20,7 @@ type ginServer struct {
 }
 
 func NewGinServer(conf *config.Config, db database.Database, logger *slog.Logger) Server {
+	gin.SetMode(gin.ReleaseMode)
 	app := gin.Default()
 
 	return &ginServer{

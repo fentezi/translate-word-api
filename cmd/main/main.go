@@ -11,6 +11,7 @@ func main() {
 	cfg := config.MustLoad()
 
 	logger := logger.MustSetupLogger(cfg.Env)
+	logger = logger.With("service", "TranslateWord")
 
 	db := database.NewRedisDatabase(cfg)
 

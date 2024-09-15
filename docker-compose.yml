@@ -1,0 +1,37 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: translate_container
+    image: translate_word_api                             
+    ports:
+      - "8080:8080"
+    depends_on:
+      - redis
+    restart: always
+    networks:
+      - appnet
+      - internet
+
+  redis:
+    image: redis:latest
+    container_name: redis_container
+    ports:
+      - "6379:6379"
+    restart: always
+    volumes:  
+      - redis_data:/data
+    networks:
+      - appnet
+
+volumes:
+  redis_data:
+
+networks:
+  appnet:
+    name: appnet
+    driver: bridge
+  internet:
+    name: internet
+    driver: bridge  

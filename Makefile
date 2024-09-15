@@ -7,7 +7,13 @@ build:
 start:
 	docker run -p 8080:8080 --name translate-word-api --rm -d translate-word-api
 
+up:
+	docker compose up -d
+
+down:
+	docker compose down
+
 test:
 	go test ./...
 
-.PHONY: run	build start test
+.PHONY: run	build start test up down
