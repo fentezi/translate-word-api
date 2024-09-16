@@ -3,7 +3,7 @@ server:
   port: 8080
 
 database:
-  host: "redis_container"
+  host: "localhost"
   port: "6379"
   name: 0
   password: ""

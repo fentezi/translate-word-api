@@ -26,7 +26,7 @@ func MustSetupLogger(env string) *slog.Logger {
 			),
 		)
 	case "prod":
-		f, err := os.OpenFile("log.json", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+		f, err := os.OpenFile("log.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 		if err != nil {
 			panic(err)
 		}
