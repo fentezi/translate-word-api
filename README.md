@@ -14,7 +14,12 @@ cd translate-word-api
 
 ## Использование
 
-Проект использует docker-compose.yaml для запуска. Чтобы запустить проект, выполните команду:
+Для запуска проекта вне Docker выполните команду:
+```bash
+go run cmd/main/main.go -config='./config/config.yml'
+```
+
+Для запуска проекта с использованием Docker Compose выполните команду:
 ```bash
 docker compose up
 ```
