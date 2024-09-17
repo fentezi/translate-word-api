@@ -1,0 +1,67 @@
+openapi: 3.1.1
+info:
+  title: "TranslateWord API"
+  description: "API for translation of words from English to Russian"
+  version: "1.0.0"
+  contact:
+    name: "Nickolay"
+    email: "serouhn@gmail.com"
+servers:
+  - url: "http://localhost:8080/api"
+paths:
+  /ping:
+    get:
+      summary: "Checking service availability"
+      description: "Returns status code 200 if the service is running"
+      responses:
+        '200':
+          description: "Ok"
+          content:
+            application/json:
+              schema:
+                title: "Pong"
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Pong"
+  /word:
+    get:
+      summary: Translate a word
+      description: Translate a given word and return its translation.
+      parameters:
+        - name: word
+          in: query
+          required: true
+          schema:
+            type: string
+          description: The word to be translated.
+      responses:
+        '200':
+          description: Successful translation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Translated word"
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal server error"
+components:
+  schemas:
+    AddWord:
+      type: object
+      properties:
+        word:
+          type: string
+          example: "example"
